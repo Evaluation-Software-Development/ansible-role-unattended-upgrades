@@ -16,6 +16,13 @@ unattended_cache_valid_time: 3600
 # List of packages to not update
 unattended_package_blacklist: []
 
+#Unattended-Upgrade::Package-Whitelist
+# List of packages to update
+unattended_package_whitelist: []
+
+# if set to true dependencies of whitelisted packages are not allowed
+unattended_package_whitelist_strict: false
+
 #Unattended-Upgrade::AutoFixInterruptedDpkg
 # On a unclean dpkg exit unattended-upgrades will run
 #   dpkg --force-confold --configure -a

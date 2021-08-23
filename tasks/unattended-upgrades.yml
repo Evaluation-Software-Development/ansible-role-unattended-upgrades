@@ -32,6 +32,8 @@
     owner: root
     group: root
     mode: 0644
+    trim_blocks: yes
+    lstrip_blocks: yes
 
 - name: create unattended-upgrades configuration
   template:
@@ -40,3 +42,5 @@
     owner: root
     group: root
     mode: 0644
+    trim_blocks: yes
+    lstrip_blocks: yes
