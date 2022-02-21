@@ -1,2 +1,6 @@
  - include: unattended-upgrades.yml
    tags: unattended
+
+ - name: configure timers
+   include: configure-timers.yml
+   when: unattended_automatic_configure_timers|bool

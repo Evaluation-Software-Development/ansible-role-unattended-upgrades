@@ -1,0 +1,48 @@
+---
+# tasks file for unattended-upgrades-timer
+
+- name: Create override directory for apt-daily.timer
+  ansible.builtin.file:
+    path: /etc/systemd/system/apt-daily.timer.d
+    state: directory
+    user: root
+    group: root
+    mode: 'u=rwx,g=rx,o='
+
+- name: copy apt-daily.timer override
+  ansible.builtin.copy:
+    src: "apt-daily.timer.d/override.conf"
+    dest: "/etc/systemd/system/apt-daily.timer.d"
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o="
+
+- name: Create override directory for apt-daily-upgrade.timer
+  ansible.builtin.file:
+    path: /etc/systemd/system/apt-daily-upgrade.timer.d
+    state: directory
+    user: root
+    group: root
+    mode: 'u=rwx,g=rx,o='
+
+- name: copy apt-daily-upgrade.timer override
+  ansible.builtin.copy:
+    src: "apt-daily-upgrade.timer.d/override.conf"
+    dest: "/etc/systemd/system/apt-daily-upgrade.timer.d"
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o="
+
+- name: Reload daemon
+  ansible.builtin.systemd:
+    daemon_reload: yes
+
+- name: Restart apt-daily.timer
+  ansible.builtin.service:
+    name: apt-daily.timer
+    state: restarted
+
+- name: Restart apt-daily-upgrade.timer
+  ansible.builtin.service:
+    name: apt-daily-upgrade.timer
+    state: restarted

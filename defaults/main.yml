@@ -147,3 +147,6 @@ unattended_dpkg_options: []
 # Download and install upgrades only on AC power
 # (i.e. skip or gracefully stop updates on battery)
 unattended_only_on_ac_power: false
+
+# Configure timers for unattended upgrades to influence when apt is updated and upgraded
+unattended_automatic_configure_timers: false
