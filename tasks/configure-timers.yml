@@ -5,7 +5,7 @@
   ansible.builtin.file:
     path: /etc/systemd/system/apt-daily.timer.d
     state: directory
-    user: root
+    owner: root
     group: root
     mode: 'u=rwx,g=rx,o='
 
@@ -21,7 +21,7 @@
   ansible.builtin.file:
     path: /etc/systemd/system/apt-daily-upgrade.timer.d
     state: directory
-    user: root
+    owner: root
     group: root
     mode: 'u=rwx,g=rx,o='
 
